@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@500;600&family=Handjet:wght@500&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $font-family;
+}
+
+body{
+  background-image: url('../images/bgc2.jpg');
+  background-size: cover;
+  background-position: center;
+  font-size: $base-font-size;
+}
+
+.App{
+  max-width: 1200px;
+  width: 88%;
+  height: 100vh;
+  margin: 0 auto;
+}

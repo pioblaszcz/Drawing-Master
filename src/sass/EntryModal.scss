@@ -1,0 +1,61 @@
+.modal-container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    background: transparent;
+    height: 100vh;
+}
+
+.modal{
+    margin: 0 auto;
+    width: 80%;
+    height: 50%;
+    background-color: $base-background-color;
+    border: 4px rgba(29,29,27,.15) solid;
+    border-radius: 2%;
+    box-shadow: inset 0px 2px 0px 0px rgba(255,255,255,.15),0px 3px 0px 0px rgba(255,255,255,0.15);
+    display: flex;
+    flex-direction: column;
+    
+    @media (orientation: landscape){
+        justify-content: space-around;
+    }
+
+    .modal__header{
+        margin-top: 10%;
+        height: 28%;
+        margin-bottom: 5%;
+
+        @media (orientation: landscape){
+            display: none;
+        }
+    }
+
+    .modal__logo{
+        display: block;
+        margin: 0 auto;
+        width: 90%;
+        max-width: 180px;
+    }
+
+    .modal__content{
+        width: 90%;
+        max-width: 320px;
+        padding: 5%;
+        margin: 0 auto;
+        font-family: $digital-font;
+        color: $secondary-color;
+        text-align: center;
+        box-shadow: 0 0 3px gray;
+    }
+
+    .modal__title{
+        display: block;
+        padding-bottom: 1rem;
+        text-transform: uppercase;
+    }
+}
