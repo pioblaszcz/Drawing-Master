@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 
 import StartApp from './pages/StartApp';
+import Loading from './pages/Loading';
 import EntryModal from './components/Modals/EntryModal';
 
 const checkIsAppAvaliable = () => {
@@ -24,7 +25,6 @@ const checkIsAppAvaliable = () => {
 }
 
 const App = () => {
-
   const [appAvalible, setIsAppAvaliable] = useState(checkIsAppAvaliable());
 
   const router = createBrowserRouter(createRoutesFromElements(
@@ -49,4 +49,8 @@ const App = () => {
   );
 }
 
-export default App;
+export default () => (
+  <Suspense fallback={<Loading />}>
+    <App />
+  </Suspense>
+);

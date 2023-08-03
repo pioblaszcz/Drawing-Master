@@ -1,10 +1,13 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 const MultiplayerComponent = () => {
+    const { t } = useTranslation();
+
     return (
         <div className="multi">
-            <p className="multi__appologise">
-                We are sorry, but in the beta version of the game there is no way to compete with other players!
+            <p className="multi__apologise">
+                {t('startApp.apologise')}
             </p>
         </div>
     );

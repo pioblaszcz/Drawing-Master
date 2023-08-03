@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGlobe } from "@fortawesome/free-solid-svg-icons";
+import { useTranslation } from 'react-i18next';
 
 import TrainingComponent from '../components/StartApp/TrainingComponent';
 import MultiplayerComponent from '../components/StartApp/MultiplayerComponent';
@@ -10,6 +11,8 @@ import Footer from '../components/StartApp/Footer';
 import logo from '../images/logotran2.png';
 
 const StartApp = () => {
+    const { t, i18n } = useTranslation();
+
     const [playOption, setPlayOption] = useState(1);
     const [language, setLanguage] = useState('EN');
     const handleChose = (option) => setPlayOption(option);
@@ -17,8 +20,14 @@ const StartApp = () => {
     const play = playOption ? <TrainingComponent /> : <MultiplayerComponent />;
 
     const handleChangeLanguage = () => {
-        if (language === 'EN') setLanguage('PL');
-        else setLanguage('EN');
+        if (language === 'EN') {
+            setLanguage('PL');
+            i18n.changeLanguage('pl');
+        }
+        else {
+            setLanguage('EN');
+            i18n.changeLanguage('en');
+        }
     }
 
     return (
@@ -32,8 +41,8 @@ const StartApp = () => {
             </div>
             <div className="startPage__main">
                 <div className="startPage__play">
-                    <button className={`startPage__chose ${playOption ? 'button--active' : 'button--unactive'}`} onClick={() => handleChose(1)}>Training</button>
-                    <button className={`startPage__chose  ${!playOption ? 'button--active' : 'button--unactive'}`} onClick={() => handleChose(0)}>Play With Friends</button>
+                    <button className={`startPage__chose ${playOption ? 'button--active' : 'button--unactive'}`} onClick={() => handleChose(1)}>{t('startApp.training')}</button>
+                    <button className={`startPage__chose  ${!playOption ? 'button--active' : 'button--unactive'}`} onClick={() => handleChose(0)}>{t('startApp.playWFriends')}</button>
                     <div className={`space ${!playOption && 'space--second'}`}></div>
                     {play}
                 </div>

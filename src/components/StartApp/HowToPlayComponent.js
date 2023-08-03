@@ -1,5 +1,6 @@
 import React, { useState, memo, useEffect } from 'react';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
+import { useTranslation } from 'react-i18next';
 
 import 'react-circular-progressbar/dist/styles.css';
 
@@ -35,6 +36,7 @@ const sliderElements = [
 let timer;
 
 const HowToPlay = () => {
+    const { t } = useTranslation();
 
     const [pictureActive, setPictureActive] = useState(0);
     const [valueEnd, setValueEnd] = useState(100)
@@ -77,7 +79,7 @@ const HowToPlay = () => {
                     />}
                 </ProgressProvider>
             </div>
-            <h1 className="howToPlay__header">How to play</h1>
+            <h1 className="howToPlay__header">{t('startApp.howTtile')}</h1>
             <div className="howToPlay__main">
                 <MainHowComponent {...main} />
             </div>

@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import icon from '../../images/playIcn.png';
 import avatar from '../../images/avatars/avatar2.png';
 import refresh from '../../images/refresh.png';
 
 const TrainingComponent = () => {
+    const { t } = useTranslation();
+
     const [nickname, setNickname] = useState('');
 
     const setUserNickname = (e) => setNickname(e.target.value);
@@ -22,13 +25,13 @@ const TrainingComponent = () => {
                 </div>
             </div>
             <div className="play__nickname">
-                <p className="nickname__p">Insert your nickname</p>
-                <input type="text" className="nickname__input" placeholder="Your nickname" value={nickname} onChange={setUserNickname} />
+                <p className="nickname__p">{t('startApp.insert')}</p>
+                <input type="text" className="nickname__input" placeholder={t('startApp.placeholder')} value={nickname} onChange={setUserNickname} />
             </div>
             <div className="play__start-wraper">
                 <button className="play__button" onClick={handleStartGame}>
                     <img src={icon} alt="" className="play__button-icon" />
-                    <p> Start</p>
+                    <p>Start</p>
                 </button>
             </div>
         </div>
