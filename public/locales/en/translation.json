@@ -17,5 +17,10 @@
         "text2": "You dont have much time to reproduce the drawing, hurry up!",
         "title3": "The more precise the better!",
         "text3": "The application will check how close your drawing is to the original and award you points! GL"
+    },
+    "game": {
+        "round": "Round",
+        "go": "Go!",
+        "remember": "Now remember the image!"
     }
 }

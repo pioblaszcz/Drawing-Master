@@ -1,19 +1,32 @@
 import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
+import { useAppStore } from '../../stores/hooks';
 
 import icon from '../../images/playIcn.png';
 import avatar from '../../images/avatars/avatar2.png';
 import refresh from '../../images/refresh.png';
 
 const TrainingComponent = () => {
+    const { changeHide } = useAppStore();
+    const navigate = useNavigate();
+
     const { t } = useTranslation();
 
     const [nickname, setNickname] = useState('');
+    const [placeholderEr, setPlaceholderEr] = useState(false);
 
     const setUserNickname = (e) => setNickname(e.target.value);
 
     const handleStartGame = () => {
+        if (nickname === '') {
+            setPlaceholderEr(true);
+            setTimeout(() => setPlaceholderEr(false), 500);
+            return;
+        }
 
+        changeHide(true);
+        setTimeout(() => navigate("/play"), 1000);
     }
 
     return (
@@ -25,8 +38,8 @@ const TrainingComponent = () => {
                 </div>
             </div>
             <div className="play__nickname">
-                <p className="nickname__p">{t('startApp.insert')}</p>
-                <input type="text" className="nickname__input" placeholder={t('startApp.placeholder')} value={nickname} onChange={setUserNickname} />
+                <p className={`nickname__p  ${placeholderEr && 'nickname--error'}`}>{t('startApp.insert')}</p>
+                <input type="text" className='nickname__input' placeholder={t('startApp.placeholder')} value={nickname} onChange={setUserNickname} />
             </div>
             <div className="play__start-wraper">
                 <button className="play__button" onClick={handleStartGame}>

@@ -5,9 +5,12 @@ import {
   createRoutesFromElements,
   Route
 } from 'react-router-dom';
+import StoreProvider from './stores/StoreProvider';
 
 import StartApp from './pages/StartApp';
 import Loading from './pages/Loading';
+import Game from './pages/Game';
+
 import EntryModal from './components/Modals/EntryModal';
 
 const checkIsAppAvaliable = () => {
@@ -30,6 +33,7 @@ const App = () => {
   const router = createBrowserRouter(createRoutesFromElements(
     <Route path='/'>
       <Route index element={<StartApp />} />
+      <Route path='/play' element={<Game />} />
     </Route>
   ));
 
@@ -41,7 +45,7 @@ const App = () => {
   window.addEventListener('resize', appResize);
 
   const showAppJSX = appAvalible ? <RouterProvider router={router} /> : <EntryModal />;
-
+  // throw Promise.resolve('12')
   return (
     <div className="App">
       {showAppJSX}
@@ -51,6 +55,8 @@ const App = () => {
 
 export default () => (
   <Suspense fallback={<Loading />}>
-    <App />
+    <StoreProvider>
+      <App />
+    </StoreProvider>
   </Suspense>
 );

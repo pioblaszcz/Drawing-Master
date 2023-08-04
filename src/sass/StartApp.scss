@@ -4,13 +4,28 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 80%;
-    max-width: 1200px;
-    max-height: 850px;
+    max-width: 1220px;
+    max-height: 830px;
     height: 80%;
+    transform-origin: left top;
     background-color: $base-background-color;
     border: 4px rgba(29,29,27,.15) solid;
     border-radius: 2%;
     box-shadow: inset 0px 2px 0px 0px rgba(255,255,255,.15),0px 3px 0px 0px rgba(255,255,255,0.15);
+
+    &--hide{
+       animation: hide 1s ease-in-out forwards;
+    }
+
+    @keyframes hide{
+        0%{
+            transform: scale(1) translate(-50%, -50%);
+         }
+
+        100%{
+           transform: scale(0) translate(-50%, -50%);
+        }
+    }
 
     .startPage__logo{
         display: flex;
@@ -188,6 +203,19 @@
             }
         }
 
+        .nickname--error{
+            animation: nickname .2s linear alternate-reverse ;
+        }
+
+        @keyframes nickname {
+            50%{
+                transform: translateX(-55%);
+            }
+            100%{
+                transform: translateX(-45%);
+            }
+        }
+
         .nickname__input{
             position: absolute;
             bottom: 7%;
@@ -209,6 +237,7 @@
                 outline:none;
             }
         }
+
     }
 
     .play__start-wraper{

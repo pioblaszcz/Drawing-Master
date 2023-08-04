@@ -3,9 +3,12 @@
     src: url('../fonts/basefont.ttf');
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@500;600&family=Handjet:wght@500&display=swap');
+
 $font-family: 'Anja', sans-serif;
 $digital-font:  'Handjet', cursive;
 $base-font-size: 20px;
+$warn-color: rgb(255, 0, 0);
 $contrast-color: rgb(32, 233, 172);
 $primary-color: rgb(219, 219, 219);
 $secondary-color: rgb(12, 12, 12);

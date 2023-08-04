@@ -18,5 +18,10 @@
         "text2": "Nie masz duzo czasu na wykonanie swojej pracy, pospiesz sie!",
         "title3": "Im blizej tym lepiej!",
         "text3": "Program sprawdzi podopbienstwo twojego rysunku do orginalu i przyzna punkty! Powodzenia"
+    },
+    "game": {
+        "round": "Runda",
+        "go": "Start!",
+        "remember": "Zapamietaj wylosowany obrazek!"
     }
 }
