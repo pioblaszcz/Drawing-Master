@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { observer } from 'mobx-react';
 import { useAppStore } from '../stores/hooks';
 import { useTranslation } from 'react-i18next';
-import RememberComponent from '../components/Game/RememberComponent';
+import PlayComponent from '../components/Game/PlayComponent';
 
 const Game = () => {
 
@@ -14,18 +14,15 @@ const Game = () => {
 
     useEffect(() => {
         if (!app.hideStartApp) navigate('/');
-        setTimeout(() => setGameStarted(true), 5500);
+        setTimeout(() => setGameStarted(true), 4700);
     }, [app.hideStartApp, navigate]);
-
-    const playjsx = app.playerTurn ? null : <RememberComponent />;
 
     return (
         <>
             {gameStarted ?
-                playjsx
+                <PlayComponent />
                 :
                 <div className="round">
-                    <p>{t('game.round')} 1</p>
                     <p>3</p>
                     <p>2</p>
                     <p>1</p>

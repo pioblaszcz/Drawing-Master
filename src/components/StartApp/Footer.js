@@ -8,7 +8,7 @@ const Footer = () => {
     return (
         <div className="startPage__footer">
             <p className="footer__info">
-                <a href="#">github</a>  | <a href="#">{t('startApp.contact')}</a>
+                <a href="https://github.com/pioblaszcz/Drawing-Master" target="_blank">github</a>  | <a href="#">{t('startApp.contact')}</a>
             </p>
         </div>
     );

@@ -47,15 +47,19 @@
         max-width: 320px;
         padding: 5%;
         margin: 0 auto;
-        font-family: $digital-font;
         color: $secondary-color;
         text-align: center;
         box-shadow: 0 0 3px gray;
+    }
+
+    .modal__description{
+        font-family: $digital-font;
     }
 
     .modal__title{
         display: block;
         padding-bottom: 1rem;
         text-transform: uppercase;
+        font-family: $digital-font;
     }
 }

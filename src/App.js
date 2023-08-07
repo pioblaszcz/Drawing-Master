@@ -27,6 +27,8 @@ const checkIsAppAvaliable = () => {
   return true;
 }
 
+//pozwol na resizing gdy rozpoczeto gre, potem pomyslimy!
+
 const App = () => {
   const [appAvalible, setIsAppAvaliable] = useState(checkIsAppAvaliable());
 
