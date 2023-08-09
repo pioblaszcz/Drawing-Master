@@ -13,7 +13,7 @@ const Game = () => {
     const { app } = useAppStore();
 
     useEffect(() => {
-        if (!app.hideStartApp) navigate('/');
+        if (!app.hideStartApp || app.shouldReturn) navigate('/');
         setTimeout(() => setGameStarted(true), 4700);
     }, [app.hideStartApp, navigate]);
 

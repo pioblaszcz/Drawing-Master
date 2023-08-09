@@ -61,6 +61,10 @@
         box-shadow: 0px 6px 0px 0px rgb(110, 31, 0);
         transition: .4s;
 
+        &--user-select{
+            transform: scale(1.1);
+        }
+
         &:hover{
             transform: scale(1.1);
         }
@@ -200,6 +204,27 @@
             background: $contrast-color;
             cursor: pointer;
           }
+
+          &::-ms-thumb {
+            box-shadow: 1px 1px 1px #000000;
+            border: 1px solid #000000;
+            height: 30px;
+            width: 15px;
+            border-radius: 5px;
+            background: $contrast-color;
+            cursor: pointer;
+        }
+
+        &::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            box-shadow: 1px 1px 1px #000000;
+            border: 1px solid #000000;
+            height: 30px;
+            width: 15px;
+            border-radius: 5px;
+            background: $contrast-color;
+            cursor: pointer;
+        }
     }
 
     .panel__weightValue{
@@ -264,7 +289,6 @@
     bottom: 55%;
     width: 25%;
     cursor: pointer;
-
 }
 
 .endInfo__container{
@@ -282,8 +306,7 @@
         text-transform: uppercase;
         letter-spacing: 2px;
         text-align: center;
-        color: $contrast-color;
-        -webkit-text-stroke: 2px rgb(0, 0, 0); 
+        color: #fff;
         animation: showEndInfo 2s linear;
 
 
@@ -312,8 +335,7 @@
         text-transform: uppercase;
         letter-spacing: 2px;
         text-align: center;
-        color: $contrast-color;
-        -webkit-text-stroke: 2px rgb(0, 0, 0); 
+        color: #fff;
         animation: showEndInfo 2.5s 2.7s linear;
 
 

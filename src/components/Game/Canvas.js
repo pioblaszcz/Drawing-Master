@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useDrawingStore } from '../../stores/hooks';
 import { useAppStore } from '../../stores/hooks';
 import { useOnDraw } from '../../alghoritms/hooks';
+import EndGameComponent from './EndGameComponent';
 
 import wow from '../../images/woow.png';
 import nail from '../../images/nail.png';
@@ -23,6 +24,7 @@ const Canvas = ({ isPlayerTurn, showImage }) => {
 
     const [canvasWidth, setCanvasWidth] = useState();
     const [canvasHeight, setCanvasHeight] = useState();
+    const [showEndGameComponent, setShowEndGameComponent] = useState(false);
     const [showCompare, setShowCompare] = useState(false);
 
     useEffect(() => {
@@ -31,6 +33,10 @@ const Canvas = ({ isPlayerTurn, showImage }) => {
             setTimeout(() => setShowResult(true), 6500);
         }
     }, [app.endDrawing]);
+
+    useEffect(() => {
+        if (app.isGameEnded) setTimeout(() => setShowEndGameComponent(true), 1000);
+    }, [app.isGameEnded]);
 
     useEffect(() => setCanvasProperties(), []);
 
@@ -71,29 +77,33 @@ const Canvas = ({ isPlayerTurn, showImage }) => {
     }
 
     return (
-        <div className="canvas-container">
-            <img src={wow} alt="" className="container__wow" />
-            <img src={nail} alt="" className="container__nail" />
-            <img src={pin} alt="" className="container__pin" />
-            {showCompare && (
-                <>
-                    <img src={drawing} className="canvasCompare canvasCompare--image" />
-                    <canvas
-                        ref={canvasCompareRef}
+        <>
+            {showEndGameComponent ? <EndGameComponent /> :
+                <div className={`canvas-container ${app.isGameEnded && 'canvas-container--hide'}`}>
+                    <img src={wow} alt="" className="container__wow" />
+                    <img src={nail} alt="" className="container__nail" />
+                    <img src={pin} alt="" className="container__pin" />
+                    {showCompare && (
+                        <>
+                            <img src={drawing} className="canvasCompare canvasCompare--image" />
+                            <canvas
+                                ref={canvasCompareRef}
+                                width={canvasWidth}
+                                height={canvasHeight}
+                                className="canvasCompare canvasCompare--main">
+                            </canvas>
+                        </>
+                    )}
+                    <canvas className={`canvas ${showImage && 'canvas--showImage'}`}
                         width={canvasWidth}
                         height={canvasHeight}
-                        className="canvasCompare canvasCompare--main">
-                    </canvas>
-                </>
-            )}
-            <canvas className={`canvas ${showImage && 'canvas--showImage'}`}
-                width={canvasWidth}
-                height={canvasHeight}
-                ref={setCanvasRef}
-                onMouseDown={onMouseDown}
-            ></canvas>
-            {!showImage && !isPlayerTurn && <p className="canvas__text">{t('game.remember')}</p>}
-        </div>
+                        ref={setCanvasRef}
+                        onMouseDown={onMouseDown}
+                    ></canvas>
+                    {!showImage && !isPlayerTurn && <p className="canvas__text">{t('game.remember')}</p>}
+                </div>
+            }
+        </>
     );
 };
 

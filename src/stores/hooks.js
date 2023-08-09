@@ -21,3 +21,13 @@ export const useDrawingStore = () => {
 
     return rootStore.drawingStore;
 }
+
+export const useUserStore = () => {
+    const rootStore = useContext(StoreContext);
+
+    if (!rootStore) {
+        throw new Error('Nie znoleziono RootStore, sprawdź czy masz poprawny provider')
+    }
+
+    return rootStore.userStore;
+}

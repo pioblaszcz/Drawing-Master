@@ -34,7 +34,7 @@ const App = () => {
 
   const router = createBrowserRouter(createRoutesFromElements(
     <Route path='/'>
-      <Route index element={<StartApp />} />
+      <Route index element={appAvalible ? <StartApp /> : <EntryModal />} />
       <Route path='/play' element={<Game />} />
     </Route>
   ));
@@ -46,11 +46,9 @@ const App = () => {
 
   window.addEventListener('resize', appResize);
 
-  const showAppJSX = appAvalible ? <RouterProvider router={router} /> : <EntryModal />;
-  // throw Promise.resolve('12')
   return (
     <div className="App">
-      {showAppJSX}
+      <RouterProvider router={router} />
     </div>
   );
 }

@@ -88,8 +88,19 @@
         justify-content: center;
         align-items: center;
         border-radius: 14px;    
+        transform: scale(1);
         border: 6px solid #6D3618;
         box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.52);
+
+        &--hide{
+            animation: hideCanvasContainer 1s linear forwards;
+        }
+
+        @keyframes hideCanvasContainer{
+            100%{
+                transform: scale(0);
+            }
+        }
     }
 
     .container__wow{
@@ -227,6 +238,10 @@
        width: 75%;
        height: 25%;
        animation: showCompareComponent .7s linear;
+
+       &--hide{
+           opacity: 0;
+       }
 
         .compare__rate{
             position: absolute;

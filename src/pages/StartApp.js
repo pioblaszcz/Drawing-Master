@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { observer } from 'mobx-react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGlobe } from "@fortawesome/free-solid-svg-icons";
 import { useTranslation } from 'react-i18next';
-import { useAppStore } from '../stores/hooks';
+import { useAppStore, useDrawingStore } from '../stores/hooks';
 
 import TrainingComponent from '../components/StartApp/TrainingComponent';
 import MultiplayerComponent from '../components/StartApp/MultiplayerComponent';
@@ -13,12 +13,18 @@ import Footer from '../components/StartApp/Footer';
 import logo from '../images/logotran2.png';
 
 const StartApp = () => {
-    const { app } = useAppStore();
+    const { app, resetApp } = useAppStore();
+    const { resetDrawing } = useDrawingStore();
     const { t, i18n } = useTranslation();
 
     const [playOption, setPlayOption] = useState(1);
     const [language, setLanguage] = useState(i18n.language.toUpperCase());
     const handleChose = (option) => setPlayOption(option);
+
+    useEffect(() => {
+        resetDrawing();
+        resetApp();
+    }, []);
 
     const play = playOption ? <TrainingComponent /> : <MultiplayerComponent />;
 

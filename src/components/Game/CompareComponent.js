@@ -10,7 +10,7 @@ const CompareComponent = () => {
     const loaderInsideRef = useRef();
     useOnCheck();
 
-    const { app } = useAppStore();
+    const { app, setIsGameEnded } = useAppStore();
 
     const [compareRateCopy, setCompareRateCopy] = useState(0)
 
@@ -18,7 +18,7 @@ const CompareComponent = () => {
         interval = setInterval(() => setCompareRateCopy(prev => prev + 1), 150);
 
         setTimeout(() => {
-            loaderInsideRef.current.style.transition = (150 * app.compareRate / 1000).toFixed(0) + 's';
+            loaderInsideRef.current.style.transition = (150 * app.compareRate / 1000).toFixed(0) + 's' + ' linear';
             loaderInsideRef.current.style.transform = `translateX(${app.compareRate}%)`;
         }, 700);
 
@@ -29,18 +29,20 @@ const CompareComponent = () => {
     useEffect(() => {
         if (compareRateCopy === app.compareRate) {
             clearInterval(interval);
-            setTimeout(() => console.log('Pokaz ekran zakonczenia'), 1800);
+            setTimeout(() => setIsGameEnded(true), 1400);
         }
 
-    }, [compareRateCopy, app.compareRate]);
+    }, [compareRateCopy, app.compareRate, setIsGameEnded]);
 
     return (
-        <div className="compare">
-            <div className="compare__rate">Compare: {compareRateCopy}%</div>
-            <div className="compare__loader">
-                <div className="compare__loader--inside" ref={loaderInsideRef}></div>
+        <>
+            <div className={`compare ${app.hideResult && 'compare--hide'}`}>
+                <div className="compare__rate">Compare: {compareRateCopy}%</div>
+                <div className="compare__loader">
+                    <div className="compare__loader--inside" ref={loaderInsideRef}></div>
+                </div>
             </div>
-        </div>
+        </>
     );
 };
 
