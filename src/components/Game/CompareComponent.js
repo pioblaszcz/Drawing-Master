@@ -36,7 +36,7 @@ const CompareComponent = () => {
 
     return (
         <>
-            <div className={`compare ${app.hideResult && 'compare--hide'}`}>
+            <div className={`compare ${app.isGameEnded && 'compare--hide'}`}>
                 <div className="compare__rate">Compare: {compareRateCopy}%</div>
                 <div className="compare__loader">
                     <div className="compare__loader--inside" ref={loaderInsideRef}></div>

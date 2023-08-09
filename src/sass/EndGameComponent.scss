@@ -11,7 +11,19 @@
     position: absolute;
     top: 60%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform-origin: left top;
+    transform:  scale(1) translate(-50%, -50%);
+
+    &--hide{
+        animation: endGameHide 1s 1.5s linear forwards;
+    }
+
+    @keyframes endGameHide{
+
+        100%{
+            transform: scale(0) translate(-50%, -50%);
+        }
+    }
 
     .endGame__trophyIcon{
         font-size: 10rem;

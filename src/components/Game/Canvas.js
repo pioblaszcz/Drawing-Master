@@ -35,7 +35,11 @@ const Canvas = ({ isPlayerTurn, showImage }) => {
     }, [app.endDrawing]);
 
     useEffect(() => {
-        if (app.isGameEnded) setTimeout(() => setShowEndGameComponent(true), 1000);
+        if (app.isGameEnded) {
+            setTimeout(() => {
+                setShowEndGameComponent(true);
+            }, 1000);
+        }
     }, [app.isGameEnded]);
 
     useEffect(() => setCanvasProperties(), []);
