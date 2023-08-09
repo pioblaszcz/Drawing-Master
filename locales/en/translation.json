@@ -1,0 +1,26 @@
+{
+    "startApp": {
+        "training": "Training",
+        "playWFriends": "Play With Friends",
+        "insert": "Insert your nickname",
+        "placeholder": "Your nickname",
+        "apologise": "We are sorry, but in the beta version of the game there is no way to compete with other players!",
+        "howTtile": "How to play",
+        "contact": "contact"
+    },
+    "how": {
+        "title0": "Get ready to memorize the picture!",
+        "text0": "Select a mode and get ready to memorize the picture, you will only have 5 seconds to do it!",
+        "title1": "Now remember the picture!",
+        "text1": "You will have to replicate it as accurately as possible in the next round!",
+        "title2": "Paint what you remembered :)",
+        "text2": "You dont have much time to reproduce the drawing, hurry up!",
+        "title3": "The more precise the better!",
+        "text3": "The application will check how close your drawing is to the original and award you points! GL"
+    },
+    "game": {
+        "round": "Round",
+        "go": "Go!",
+        "remember": "Now remember the image!"
+    }
+}
