@@ -10,6 +10,9 @@ i18n
     .use(initReactI18next)
     .init({
         fallbackLang: 'en',
+        backend: {
+            loadPath: 'Drawing-Master/locales/{{lng}}/{{ns}}.json',
+        },
     });
 
 export default i18n;

@@ -21,6 +21,13 @@
     "game": {
         "round": "Round",
         "go": "Go!",
-        "remember": "Now remember the image!"
+        "remember": "Now remember the image!",
+        "done": "Done",
+        "drawingEnded1": "Drawing time ended!",
+        "drawingEnded2": "Lets compare your Draw with orginal image!",
+        "compare": "Compare"
+    },
+    "end": {
+        "playAgain": "Play again"
     }
 }

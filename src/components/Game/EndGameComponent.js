@@ -1,14 +1,16 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import { observer } from 'mobx-react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrophy } from "@fortawesome/free-solid-svg-icons";
 import { useUserStore, useAppStore } from '../../stores/hooks';
-import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 let interval;
 
 const EndGameComponent = () => {
+
+    const { t } = useTranslation();
 
     const resultRef = useRef(null)
 
@@ -55,7 +57,7 @@ const EndGameComponent = () => {
                         <p className={`playAgain__points ${userPoints < 0 && 'playAgain__points--red'}`}>{userPoints}</p>
                     </div>
                     <div className="playAgain__container">
-                        <div className="playAgain__button" onClick={handleGoToHomePage}>Play again</div>
+                        <div className="playAgain__button" onClick={handleGoToHomePage}>{t('end.playAgain')}</div>
                     </div>
                 </div>
                 : <div className="endGame__result" ref={resultRef}>

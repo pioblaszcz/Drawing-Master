@@ -2,10 +2,13 @@ import React, { useState, useEffect, useRef } from 'react';
 import { observer } from 'mobx-react';
 import { useAppStore } from '../../stores/hooks';
 import { useOnCheck } from '../../alghoritms/hooks';
+import { useTranslation } from 'react-i18next';
 
 let interval;
 
 const CompareComponent = () => {
+
+    const { t } = useTranslation();
 
     const loaderInsideRef = useRef();
     useOnCheck();
@@ -28,8 +31,9 @@ const CompareComponent = () => {
 
     useEffect(() => {
         if (compareRateCopy === app.compareRate) {
+            const hideTime = app.compareRate < 5 ? 2800 : 1400;
             clearInterval(interval);
-            setTimeout(() => setIsGameEnded(true), 1400);
+            setTimeout(() => setIsGameEnded(true), hideTime);
         }
 
     }, [compareRateCopy, app.compareRate, setIsGameEnded]);
@@ -37,7 +41,7 @@ const CompareComponent = () => {
     return (
         <>
             <div className={`compare ${app.isGameEnded && 'compare--hide'}`}>
-                <div className="compare__rate">Compare: {compareRateCopy}%</div>
+                <div className="compare__rate">{t('game.compare')}: {compareRateCopy}%</div>
                 <div className="compare__loader">
                     <div className="compare__loader--inside" ref={loaderInsideRef}></div>
                 </div>

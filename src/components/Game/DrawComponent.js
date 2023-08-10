@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useDrawingStore } from '../../stores/hooks';
 import { useAppStore } from '../../stores/hooks';
 import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
+import { useTranslation } from 'react-i18next';
 
 import eraser from '../../images/elements/eraser.png';
 
@@ -11,6 +12,8 @@ let interval;
 const DRAWING_TIME = 70;
 
 const DrawComponent = () => {
+
+    const { t } = useTranslation();
 
     const { changeColor, changeFillSize } = useDrawingStore();
     const { setIsDrawingEnded, app } = useAppStore();
@@ -62,8 +65,8 @@ const DrawComponent = () => {
     }
 
     const infoJsx = <div className="endInfo__container">
-        <p className="endInfo__text">Drawing time ended!</p>
-        <p className="endInfo__text-smaller">Lets compare your Draw with orginal image!</p>
+        <p className="endInfo__text">{t('game.drawingEnded1')}</p>
+        <p className="endInfo__text-smaller">{t('game.drawingEnded2')}</p>
     </div>;
 
     return (
@@ -90,7 +93,7 @@ const DrawComponent = () => {
                 <div className="panel__end-container">
                     <button className="panel__end" onClick={handleEndDrawing}>
                         <FontAwesomeIcon icon={faCircleCheck} className="panel__check-icon" />
-                        <p>Done</p>
+                        <p>{t('game.done')}</p>
                     </button>
                 </div>
                 <div className="panel__weight">
