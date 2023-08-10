@@ -1,6 +1,6 @@
 import React, { useState, Suspense } from 'react';
 import {
-  createBrowserRouter,
+  createHashRouter,
   RouterProvider,
   createRoutesFromElements,
   Route
@@ -32,7 +32,7 @@ const checkIsAppAvaliable = () => {
 const App = () => {
   const [appAvalible, setIsAppAvaliable] = useState(checkIsAppAvaliable());
 
-  const router = createBrowserRouter(createRoutesFromElements(
+  const router = createHashRouter(createRoutesFromElements(
     <Route path='/'>
       <Route index element={appAvalible ? <StartApp /> : <EntryModal />} />
       <Route path='/play' element={<Game />} />

@@ -11,7 +11,7 @@ i18n
     .init({
         fallbackLang: 'en',
         backend: {
-            loadPath: 'Drawing-Master/locales/{{lng}}/{{ns}}.json',
+            loadPath: '/Drawing-Master/locales/{{lng}}/{{ns}}.json',
         },
     });
 
