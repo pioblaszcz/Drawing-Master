@@ -1,13 +1,14 @@
 {
   "files": {
-    "main.css": "/drawing-master/static/css/main.89d7706c.css",
-    "main.js": "/drawing-master/static/js/main.6fc7a551.js",
+    "main.css": "/drawing-master/static/css/main.9d7b113b.css",
+    "main.js": "/drawing-master/static/js/main.eca49448.js",
     "static/js/787.563f2455.chunk.js": "/drawing-master/static/js/787.563f2455.chunk.js",
     "static/media/bgc2.jpg": "/drawing-master/static/media/bgc2.31345e10fa356e29a029.jpg",
     "static/media/pin.png": "/drawing-master/static/media/pin.cd470c667ee58b01eb17.png",
     "static/media/wow.png": "/drawing-master/static/media/wow.f7d92448e3f975db5a37.png",
     "static/media/nail.png": "/drawing-master/static/media/nail.98fe8aa7857a47759ec0.png",
     "static/media/avatar3.png": "/drawing-master/static/media/avatar3.2cbc30b0a499546a6f69.png",
+    "static/media/draw2.jpg": "/drawing-master/static/media/draw2.5f826d1983e979931f2f.jpg",
     "static/media/avatar2.png": "/drawing-master/static/media/avatar2.5e4c8daaf7fa35ce1fdc.png",
     "static/media/avatar1.png": "/drawing-master/static/media/avatar1.864b8c12a292eb8e1ee4.png",
     "static/media/basefont.ttf": "/drawing-master/static/media/basefont.5089287d8ec6fede8f7f.ttf",
@@ -16,12 +17,12 @@
     "static/media/refresh.png": "/drawing-master/static/media/refresh.35a4dceb662b0c2217f1.png",
     "index.html": "/drawing-master/index.html",
     "static/media/getFetch.cjs": "/drawing-master/static/media/getFetch.40f37ddea2378391108f.cjs",
-    "main.89d7706c.css.map": "/drawing-master/static/css/main.89d7706c.css.map",
-    "main.6fc7a551.js.map": "/drawing-master/static/js/main.6fc7a551.js.map",
+    "main.9d7b113b.css.map": "/drawing-master/static/css/main.9d7b113b.css.map",
+    "main.eca49448.js.map": "/drawing-master/static/js/main.eca49448.js.map",
     "787.563f2455.chunk.js.map": "/drawing-master/static/js/787.563f2455.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.89d7706c.css",
-    "static/js/main.6fc7a551.js"
+    "static/css/main.9d7b113b.css",
+    "static/js/main.eca49448.js"
   ]
 }
