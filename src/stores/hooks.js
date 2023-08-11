@@ -1,6 +1,12 @@
 import { useContext } from 'react';
+import { configure } from "mobx"
 
 import { StoreContext } from './StoreProvider';
+
+configure({
+    enforceActions: "never",
+})
+
 
 export const useAppStore = () => {
     const rootStore = useContext(StoreContext);

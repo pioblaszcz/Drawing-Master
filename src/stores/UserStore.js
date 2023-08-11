@@ -19,3 +19,4 @@ export default class UserStore {
 
     resetUser = () => this.user = INITIAL_STATE;
 }
+

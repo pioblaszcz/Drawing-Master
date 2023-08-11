@@ -107,7 +107,7 @@ export const useOnCheck = () => {
     const canvas = document.querySelector('.canvas');
     const canvasToCompare = document.querySelector('.canvasCompare');
 
-    if (!canvas) return;
+    if (!canvas || !canvasToCompare) return;
 
     const ctx1 = canvas.getContext('2d', { willReadFrequently: true });
     const ctx2 = canvasToCompare.getContext('2d', { willReadFrequently: true });
@@ -122,7 +122,9 @@ export const useOnCheck = () => {
 
     for (let i = 0; i < pixels1.length; i++) {
         if ((pixels2[i] === 255 && pixels1[i] === 0) || (pixels2[i] === 255 && pixels1[i] === 255)) numberOfPixels--;
-        else if (pixels2[i] === pixels1[i]) count++;
+        else if (pixels2[i] === pixels1[i] && pixels2[i] !== 0) {
+            count++;
+        }
     }
     const number = Number(((count / numberOfPixels) * 100).toFixed(0));
     setCompareRate(number);
