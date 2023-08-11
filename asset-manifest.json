@@ -1,27 +1,27 @@
 {
   "files": {
-    "main.css": "/Drawing-Master/static/css/main.624cf55c.css",
-    "main.js": "/Drawing-Master/static/js/main.3c13c40e.js",
-    "static/js/787.563f2455.chunk.js": "/Drawing-Master/static/js/787.563f2455.chunk.js",
-    "static/media/bgc2.jpg": "/Drawing-Master/static/media/bgc2.31345e10fa356e29a029.jpg",
-    "static/media/pin.png": "/Drawing-Master/static/media/pin.cd470c667ee58b01eb17.png",
-    "static/media/wow.png": "/Drawing-Master/static/media/wow.f7d92448e3f975db5a37.png",
-    "static/media/nail.png": "/Drawing-Master/static/media/nail.98fe8aa7857a47759ec0.png",
-    "static/media/avatar3.png": "/Drawing-Master/static/media/avatar3.2cbc30b0a499546a6f69.png",
-    "static/media/avatar2.png": "/Drawing-Master/static/media/avatar2.5e4c8daaf7fa35ce1fdc.png",
-    "static/media/avatar1.png": "/Drawing-Master/static/media/avatar1.864b8c12a292eb8e1ee4.png",
-    "static/media/basefont.ttf": "/Drawing-Master/static/media/basefont.5089287d8ec6fede8f7f.ttf",
-    "static/media/draw1.png": "/Drawing-Master/static/media/draw1.ae7a7ac30a4fc970b5a5.png",
-    "static/media/logotran.png": "/Drawing-Master/static/media/logotran.16359c8811a1c7f3509c.png",
-    "static/media/refresh.png": "/Drawing-Master/static/media/refresh.35a4dceb662b0c2217f1.png",
-    "index.html": "/Drawing-Master/index.html",
-    "static/media/getFetch.cjs": "/Drawing-Master/static/media/getFetch.40f37ddea2378391108f.cjs",
-    "main.624cf55c.css.map": "/Drawing-Master/static/css/main.624cf55c.css.map",
-    "main.3c13c40e.js.map": "/Drawing-Master/static/js/main.3c13c40e.js.map",
-    "787.563f2455.chunk.js.map": "/Drawing-Master/static/js/787.563f2455.chunk.js.map"
+    "main.css": "/drawing-master/static/css/main.76c8b5cd.css",
+    "main.js": "/drawing-master/static/js/main.aaaeb92c.js",
+    "static/js/787.563f2455.chunk.js": "/drawing-master/static/js/787.563f2455.chunk.js",
+    "static/media/bgc2.jpg": "/drawing-master/static/media/bgc2.31345e10fa356e29a029.jpg",
+    "static/media/pin.png": "/drawing-master/static/media/pin.cd470c667ee58b01eb17.png",
+    "static/media/wow.png": "/drawing-master/static/media/wow.f7d92448e3f975db5a37.png",
+    "static/media/nail.png": "/drawing-master/static/media/nail.98fe8aa7857a47759ec0.png",
+    "static/media/avatar3.png": "/drawing-master/static/media/avatar3.2cbc30b0a499546a6f69.png",
+    "static/media/avatar2.png": "/drawing-master/static/media/avatar2.5e4c8daaf7fa35ce1fdc.png",
+    "static/media/avatar1.png": "/drawing-master/static/media/avatar1.864b8c12a292eb8e1ee4.png",
+    "static/media/basefont.ttf": "/drawing-master/static/media/basefont.5089287d8ec6fede8f7f.ttf",
+    "static/media/draw1.png": "/drawing-master/static/media/draw1.ae7a7ac30a4fc970b5a5.png",
+    "static/media/logotran.png": "/drawing-master/static/media/logotran.16359c8811a1c7f3509c.png",
+    "static/media/refresh.png": "/drawing-master/static/media/refresh.35a4dceb662b0c2217f1.png",
+    "index.html": "/drawing-master/index.html",
+    "static/media/getFetch.cjs": "/drawing-master/static/media/getFetch.40f37ddea2378391108f.cjs",
+    "main.76c8b5cd.css.map": "/drawing-master/static/css/main.76c8b5cd.css.map",
+    "main.aaaeb92c.js.map": "/drawing-master/static/js/main.aaaeb92c.js.map",
+    "787.563f2455.chunk.js.map": "/drawing-master/static/js/787.563f2455.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.624cf55c.css",
-    "static/js/main.3c13c40e.js"
+    "static/css/main.76c8b5cd.css",
+    "static/js/main.aaaeb92c.js"
   ]
 }
