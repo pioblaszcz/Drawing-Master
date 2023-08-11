@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import logo from '../../images/logotran2.png';
+import logo from '../../images/logo/logotran.png';
 
 const EntryModal = () => {
 
@@ -9,7 +9,7 @@ const EntryModal = () => {
 
     useEffect(() => {
         navigate('/');
-    }, []);
+    }, [navigate]);
 
     return (
         <>

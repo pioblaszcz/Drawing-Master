@@ -106,7 +106,7 @@ export const useOnCheck = () => {
     let count = 0;
 
     for (let i = 0; i < pixels1.length; i++) {
-        if (pixels2[i] === 255 && pixels1[i] === 0 || pixels2[i] === 255 && pixels1[i] === 255) numberOfPixels--;
+        if ((pixels2[i] === 255 && pixels1[i] === 0) || (pixels2[i] === 255 && pixels1[i] === 255)) numberOfPixels--;
         else if (pixels2[i] === pixels1[i]) count++;
     }
     const number = Number(((count / numberOfPixels) * 100).toFixed(0));

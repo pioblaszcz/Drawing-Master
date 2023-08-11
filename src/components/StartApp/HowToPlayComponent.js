@@ -1,11 +1,10 @@
 import React, { useState, memo, useEffect } from 'react';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import { useTranslation } from 'react-i18next';
-
-import 'react-circular-progressbar/dist/styles.css';
-
 import ProgressProvider from "../../providers/ProgressProvider";
 import MainHowComponent from './MainHowComponent';
+
+import 'react-circular-progressbar/dist/styles.css';
 
 const sliderElements = [
     {

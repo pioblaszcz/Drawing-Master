@@ -1,8 +1,8 @@
 {
   "homepage": "https://pioblaszcz.github.io/Drawing-Master",
-  "name": "first",
-  "version": "0.1.0",
-  "private": true,
+  "name": "drawingmaster",
+  "version": "1.0.0",
+  "private": false,
   "dependencies": {
     "@babel/plugin-proposal-decorators": "^7.22.7",
     "@babel/plugin-syntax-decorators": "^7.22.5",

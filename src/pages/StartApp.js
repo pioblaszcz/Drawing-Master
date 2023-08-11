@@ -10,21 +10,21 @@ import MultiplayerComponent from '../components/StartApp/MultiplayerComponent';
 import HowToPlay from '../components/StartApp/HowToPlayComponent';
 import Footer from '../components/StartApp/Footer';
 
-import logo from '../images/logotran2.png';
+import logo from '../images/logo/logotran.png';
 
 const StartApp = () => {
+
     const { app, resetApp } = useAppStore();
     const { resetDrawing } = useDrawingStore();
     const { t, i18n } = useTranslation();
 
     const [playOption, setPlayOption] = useState(1);
     const [language, setLanguage] = useState(i18n.language.toUpperCase());
-    const handleChose = (option) => setPlayOption(option);
 
     useEffect(() => {
         resetDrawing();
         resetApp();
-    }, []);
+    }, [resetApp, resetDrawing]);
 
     const play = playOption ? <TrainingComponent /> : <MultiplayerComponent />;
 
@@ -39,6 +39,8 @@ const StartApp = () => {
         }
     }
 
+    const handleChoseMode = (option) => setPlayOption(option);
+
     return (
         <div className={`startPage ${app.hideStartApp && 'startPage--hide'}`}>
             <div className="startPage__lang" onClick={handleChangeLanguage}>
@@ -50,8 +52,8 @@ const StartApp = () => {
             </div>
             <div className="startPage__main">
                 <div className="startPage__play">
-                    <button className={`startPage__chose ${playOption ? 'button--active' : 'button--unactive'}`} onClick={() => handleChose(1)}>{t('startApp.training')}</button>
-                    <button className={`startPage__chose  ${!playOption ? 'button--active' : 'button--unactive'}`} onClick={() => handleChose(0)}>{t('startApp.playWFriends')}</button>
+                    <button className={`startPage__chose ${playOption ? 'button--active' : 'button--unactive'}`} onClick={() => handleChoseMode(1)}>{t('startApp.training')}</button>
+                    <button className={`startPage__chose  ${!playOption ? 'button--active' : 'button--unactive'}`} onClick={() => handleChoseMode(0)}>{t('startApp.playWFriends')}</button>
                     <div className={`space ${!playOption && 'space--second'}`}></div>
                     {play}
                 </div>

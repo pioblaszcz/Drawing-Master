@@ -27,8 +27,6 @@ const checkIsAppAvaliable = () => {
   return true;
 }
 
-//pozwol na resizing gdy rozpoczeto gre, potem pomyslimy!
-
 const App = () => {
   const [appAvalible, setIsAppAvaliable] = useState(checkIsAppAvaliable());
 
@@ -53,10 +51,13 @@ const App = () => {
   );
 }
 
-export default () => (
+const AppWrapped = () => (
   <Suspense fallback={<Loading />}>
     <StoreProvider>
       <App />
     </StoreProvider>
   </Suspense>
 );
+
+
+export default AppWrapped;

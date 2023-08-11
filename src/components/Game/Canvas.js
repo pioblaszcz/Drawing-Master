@@ -6,12 +6,11 @@ import { useAppStore } from '../../stores/hooks';
 import { useOnDraw } from '../../alghoritms/hooks';
 import EndGameComponent from './EndGameComponent';
 
-import wow from '../../images/woow.png';
-import nail from '../../images/nail.png';
-import pin from '../../images/pin.png';
+import wow from '../../images/elements/wow.png';
+import nail from '../../images/elements/nail.png';
+import pin from '../../images/elements/pin.png';
 
-import drawing from '../../images/drawings/draw1k.png'
-
+import drawing from '../../images/drawings/draw1.png'
 
 const Canvas = ({ isPlayerTurn, showImage }) => {
 
@@ -32,7 +31,7 @@ const Canvas = ({ isPlayerTurn, showImage }) => {
             setTimeout(() => setShowCompare(true), 5500);
             setTimeout(() => setShowResult(true), 6500);
         }
-    }, [app.endDrawing]);
+    }, [app.endDrawing, setShowResult, app.isGameEnded]);
 
     useEffect(() => {
         if (app.isGameEnded) {
@@ -71,14 +70,18 @@ const Canvas = ({ isPlayerTurn, showImage }) => {
         ctx.fill();
     }
 
-    const { onMouseDown, setCanvasRef } = useOnDraw(onDraw);
-
     const setCanvasProperties = () => {
         const canvas = document.querySelector('canvas');
         if (!canvas.clientWidth) return;
         setCanvasWidth(canvas.clientWidth);
         setCanvasHeight(canvas.clientHeight);
     }
+
+    const { onMouseDown, setCanvasRef } = useOnDraw(onDraw);
+
+    const showImageStyle = showImage ? {
+        backgroundImage: `url(${drawing})`
+    } : {};
 
     return (
         <>
@@ -89,7 +92,7 @@ const Canvas = ({ isPlayerTurn, showImage }) => {
                     <img src={pin} alt="" className="container__pin" />
                     {showCompare && (
                         <>
-                            <img src={drawing} className="canvasCompare canvasCompare--image" />
+                            <img src={drawing} className="canvasCompare canvasCompare--image" alt="drawn element" />
                             <canvas
                                 ref={canvasCompareRef}
                                 width={canvasWidth}
@@ -98,7 +101,7 @@ const Canvas = ({ isPlayerTurn, showImage }) => {
                             </canvas>
                         </>
                     )}
-                    <canvas className={`canvas ${showImage && 'canvas--showImage'}`}
+                    <canvas className='canvas' style={showImageStyle}
                         width={canvasWidth}
                         height={canvasHeight}
                         ref={setCanvasRef}

@@ -21,7 +21,7 @@ const CompareComponent = () => {
         interval = setInterval(() => setCompareRateCopy(prev => prev + 1), 150);
 
         setTimeout(() => {
-            loaderInsideRef.current.style.transition = (150 * app.compareRate / 1000).toFixed(0) + 's' + ' linear';
+            loaderInsideRef.current.style.transition = (150 * app.compareRate / 1000).toFixed(0) + 's linear';
             loaderInsideRef.current.style.transform = `translateX(${app.compareRate}%)`;
         }, 700);
 

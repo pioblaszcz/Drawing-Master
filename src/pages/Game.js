@@ -15,7 +15,7 @@ const Game = () => {
     useEffect(() => {
         if (!app.hideStartApp || app.shouldReturn) navigate('/');
         setTimeout(() => setGameStarted(true), 4700);
-    }, [app.hideStartApp, navigate]);
+    }, [app.hideStartApp, app.shouldReturn, navigate]);
 
     return (
         <>

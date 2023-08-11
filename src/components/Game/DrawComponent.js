@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { observer } from 'mobx-react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useDrawingStore } from '../../stores/hooks';
@@ -24,6 +24,15 @@ const DrawComponent = () => {
     const [showEndInfoElement, setShowEndInfoElement] = useState(false);
     const [timeLeft, setTimeLeft] = useState(DRAWING_TIME);
 
+    const handleEndDrawing = useCallback(() => {
+        clearInterval(interval);
+        setIsDrawingEnded(true);
+        setTimeout(() => {
+            panelRef.current.style.display = 'none';
+            setShowEndInfoElement(true);
+        }, 1200);
+    }, [setIsDrawingEnded])
+
     useEffect(() => {
         interval = setInterval(() => setTimeLeft(prev => prev - 1), 1000)
 
@@ -34,7 +43,7 @@ const DrawComponent = () => {
         if (timeLeft === 0) {
             handleEndDrawing();
         }
-    }, [timeLeft]);
+    }, [timeLeft, handleEndDrawing]);
 
     const handleSetCursorWeight = (e) => {
         setCursorWeight(e.target.value);
@@ -54,15 +63,6 @@ const DrawComponent = () => {
         document.querySelector(`.${id}`).parentElement.classList.add('panel__color--user-select');
 
     };
-
-    const handleEndDrawing = () => {
-        clearInterval(interval);
-        setIsDrawingEnded(true);
-        setTimeout(() => {
-            panelRef.current.style.display = 'none';
-            setShowEndInfoElement(true);
-        }, 1200);
-    }
 
     const infoJsx = <div className="endInfo__container">
         <p className="endInfo__text">{t('game.drawingEnded1')}</p>

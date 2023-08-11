@@ -8,8 +8,8 @@ const Footer = () => {
     return (
         <div className="startPage__footer">
             <p className="footer__info">
-                <a href="https://github.com/pioblaszcz/Drawing-Master" target="_blank">github</a>  |
-                <a href="https://www.facebook.com/profile.php?id=100005502377954" target="_blank"> {t('startApp.contact')}</a>
+                <a href="https://github.com/pioblaszcz/Drawing-Master" target="_blank" rel="noreferrer">github</a>  |
+                <a href="https://www.facebook.com/profile.php?id=100005502377954" target="_blank" rel="noreferrer"> {t('startApp.contact')}</a>
             </p>
         </div>
     );

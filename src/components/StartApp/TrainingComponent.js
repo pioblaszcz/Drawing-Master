@@ -3,11 +3,11 @@ import { useNavigate } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 import { useAppStore, useUserStore } from '../../stores/hooks';
 
-import icon from '../../images/playIcn.png';
 import avatar1 from '../../images/avatars/avatar1.png';
 import avatar2 from '../../images/avatars/avatar2.png';
 import avatar3 from '../../images/avatars/avatar3.png';
-import refresh from '../../images/refresh.png';
+import icon from '../../images/elements/playIcn.png';
+import refresh from '../../images/elements/refresh.png';
 
 const avatars = [avatar1, avatar2, avatar3];
 
@@ -23,11 +23,14 @@ const TrainingComponent = () => {
     const [nickname, setNickname] = useState(user.nick ? user.nick : '');
     const [placeholderEr, setPlaceholderEr] = useState(false);
 
-    const setUserNickname = (e) => setNickname(e.target.value);
+    const setUserNickname = (e) => {
+        setNickname(e.target.value);
+        setUserNick(e.target.value);
+    }
 
     const handleChangeAvatar = () => {
-        setUserAvatar(null);
         setNumberAvatar(prev => prev + 1 > 2 ? 0 : prev + 1);
+        setUserAvatar(avatars[numberAvatar + 1]);
     }
 
     const handleStartGame = () => {
@@ -37,8 +40,7 @@ const TrainingComponent = () => {
             return;
         }
 
-        setUserNick(nickname);
-        setUserAvatar(avatars[numberAvatar]);
+        !user.avatar && setUserAvatar(avatars[numberAvatar]);
         changeHide(true);
         setTimeout(() => navigate("/play"), 1000);
     }
