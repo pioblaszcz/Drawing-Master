@@ -1,5 +1,5 @@
 import { useRef, useEffect } from 'react';
-import { useAppStore } from '../stores/hooks';
+import { useAppStore, useDrawingStore } from '../stores/hooks';
 
 
 export const useOnDraw = (onDraw) => {
@@ -77,27 +77,42 @@ export const useOnDraw = (onDraw) => {
         isDrawingRef.current = true;
     }
 
+    const drawImage = (image) => {
+        const ctx = canvasRef.current.getContext('2d');
+        ctx.drawImage(image, 0, 0, canvasRef.current.width, canvasRef.current.height);
+    }
+
+    const removeImage = () => {
+        const ctx = canvasRef.current.getContext('2d');
+        ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
+    }
+
     return {
         setCanvasRef,
-        onMouseDown
+        onMouseDown,
+        drawImage,
+        removeImage
     }
 
 }
 
 export const useOnCheck = () => {
+    const img = new Image();
+
     const { setCompareRate } = useAppStore();
+    const { drawSettings } = useDrawingStore();
+
+    img.src = drawSettings.draw;
 
     const canvas = document.querySelector('.canvas');
-    const canvasToCompare = document.querySelector('.canvasCompare--main');
+    const canvasToCompare = document.querySelector('.canvasCompare');
 
     if (!canvas) return;
-
-    const image = document.querySelector('.canvasCompare--image');
 
     const ctx1 = canvas.getContext('2d', { willReadFrequently: true });
     const ctx2 = canvasToCompare.getContext('2d', { willReadFrequently: true });
 
-    ctx2.drawImage(image, 0, 0, canvas.width, canvas.height);
+    ctx2.drawImage(img, 0, 0, canvas.width, canvas.height);
 
     const pixels1 = ctx1.getImageData(0, 0, canvas.width, canvas.height).data;
     const pixels2 = ctx2.getImageData(0, 0, canvasToCompare.width, canvasToCompare.height).data;

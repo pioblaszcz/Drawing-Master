@@ -13,13 +13,12 @@ import Footer from '../components/StartApp/Footer';
 import logo from '../images/logo/logotran.png';
 
 const StartApp = () => {
-
     const { app, resetApp } = useAppStore();
     const { resetDrawing } = useDrawingStore();
     const { t, i18n } = useTranslation();
 
     const [playOption, setPlayOption] = useState(1);
-    const [language, setLanguage] = useState(i18n.language.toUpperCase());
+    const [language, setLanguage] = useState(i18n.language.toUpperCase().includes('E') ? 'EN' : 'PL');
 
     useEffect(() => {
         resetDrawing();

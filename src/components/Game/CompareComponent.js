@@ -11,11 +11,12 @@ const CompareComponent = () => {
     const { t } = useTranslation();
 
     const loaderInsideRef = useRef();
-    useOnCheck();
 
     const { app, setIsGameEnded } = useAppStore();
 
     const [compareRateCopy, setCompareRateCopy] = useState(0)
+
+    useOnCheck();
 
     useEffect(() => {
         interval = setInterval(() => setCompareRateCopy(prev => prev + 1), 150);

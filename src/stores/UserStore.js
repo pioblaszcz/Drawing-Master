@@ -1,4 +1,4 @@
-import { makeObservable, observable, action } from 'mobx';
+import { makeAutoObservable } from 'mobx';
 
 const INITIAL_STATE = {
     nick: "",
@@ -10,13 +10,7 @@ export default class UserStore {
     user = INITIAL_STATE
 
     constructor() {
-        makeObservable(this, {
-            user: observable,
-            setUserNick: action,
-            setUserAvatar: action,
-            addUserPoints: action,
-            resetUser: action
-        })
+        makeAutoObservable(this)
     }
 
     setUserNick = nick => this.user.nick = nick;

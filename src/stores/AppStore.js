@@ -1,4 +1,4 @@
-import { makeObservable, observable, action } from 'mobx';
+import { makeAutoObservable } from 'mobx';
 
 const INITIAL_STATE = {
     hideStartApp: false,
@@ -17,19 +17,7 @@ export default class AppStore {
     app = INITIAL_STATE;
 
     constructor() {
-        makeObservable(this, {
-            app: observable,
-            changeHide: action,
-            changeHideRemembered: action,
-            isPlayerTurn: action,
-            setIsDrawingEnded: action,
-            setShowResult: action,
-            setCompareRate: action,
-            setIsGameEnded: action,
-            setHideResult: action,
-            resetApp: action,
-            setShouldReturn: action
-        })
+        makeAutoObservable(this)
     }
 
     changeHide = hide => this.app.hideStartApp = hide;

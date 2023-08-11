@@ -10,7 +10,7 @@ import wow from '../../images/elements/wow.png';
 import nail from '../../images/elements/nail.png';
 import pin from '../../images/elements/pin.png';
 
-import drawing from '../../images/drawings/draw1.png'
+const img = new Image();
 
 const Canvas = ({ isPlayerTurn, showImage }) => {
 
@@ -25,6 +25,10 @@ const Canvas = ({ isPlayerTurn, showImage }) => {
     const [canvasHeight, setCanvasHeight] = useState();
     const [showEndGameComponent, setShowEndGameComponent] = useState(false);
     const [showCompare, setShowCompare] = useState(false);
+
+    useEffect(() => {
+        img.src = drawSettings.draw;
+    }, [drawSettings.draw])
 
     useEffect(() => {
         if (app.endDrawing) {
@@ -77,11 +81,12 @@ const Canvas = ({ isPlayerTurn, showImage }) => {
         setCanvasHeight(canvas.clientHeight);
     }
 
-    const { onMouseDown, setCanvasRef } = useOnDraw(onDraw);
+    const { onMouseDown, setCanvasRef, drawImage, removeImage } = useOnDraw(onDraw);
 
-    const showImageStyle = showImage ? {
-        backgroundImage: `url(${drawing})`
-    } : {};
+    useEffect(() => {
+        if (showImage) drawImage(img);
+        else if (!showImage && !app.endDrawing && !isPlayerTurn) removeImage();
+    }, [showImage, isPlayerTurn, app.endDrawing, drawImage, removeImage])
 
     return (
         <>
@@ -91,17 +96,14 @@ const Canvas = ({ isPlayerTurn, showImage }) => {
                     <img src={nail} alt="" className="container__nail" />
                     <img src={pin} alt="" className="container__pin" />
                     {showCompare && (
-                        <>
-                            <img src={drawing} className="canvasCompare canvasCompare--image" alt="drawn element" />
-                            <canvas
-                                ref={canvasCompareRef}
-                                width={canvasWidth}
-                                height={canvasHeight}
-                                className="canvasCompare canvasCompare--main">
-                            </canvas>
-                        </>
+                        <canvas
+                            ref={canvasCompareRef}
+                            width={canvasWidth}
+                            height={canvasHeight}
+                            className="canvasCompare">
+                        </canvas>
                     )}
-                    <canvas className='canvas' style={showImageStyle}
+                    <canvas className='canvas'
                         width={canvasWidth}
                         height={canvasHeight}
                         ref={setCanvasRef}

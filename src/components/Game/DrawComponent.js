@@ -74,14 +74,14 @@ const DrawComponent = () => {
             {showEndInfoElement && infoJsx}
             <div className={`panel__container ${app.endDrawing && `panel__container--hide`}`} ref={panelRef}>
                 <div className="panel__colors">
-                    <button className="panel__color" onClick={() => handleChangeColor('#525252', 'gray')}>
+                    <button className="panel__color panel__color--user-select" onClick={() => handleChangeColor('#525252', 'gray')}>
                         <div className="color__fill gray"></div>
                     </button>
                     <button className="panel__color" onClick={() => handleChangeColor('#5691fd', 'blue')}>
                         <div className="color__fill blue"></div>
                     </button>
-                    <button className="panel__color" onClick={() => handleChangeColor('#5b3715', 'brown')}>
-                        <div className="color__fill brown"></div>
+                    <button className="panel__color" onClick={() => handleChangeColor('#e40101', 'red')}>
+                        <div className="color__fill red"></div>
                     </button>
                     <button className="panel__color" onClick={() => handleChangeColor('#dff200', 'yellow')}>
                         <div className="color__fill yellow"></div>
