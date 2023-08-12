@@ -126,6 +126,7 @@ export const useOnCheck = () => {
             count++;
         }
     }
-    const number = Number(((count / numberOfPixels) * 100).toFixed(0));
+    let number = Number(((count / numberOfPixels) * 100).toFixed(0));
+    if (number > 100) number = 100;
     setCompareRate(number);
 }
