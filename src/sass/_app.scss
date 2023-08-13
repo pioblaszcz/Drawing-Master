@@ -12,6 +12,7 @@ body{
   background-position: center;
   font-size: $base-font-size;
   overflow: hidden;
+  position: relative;
 }
 
 .App{
@@ -19,4 +20,15 @@ body{
   width: 88%;
   height: 100vh;
   margin: 0 auto;
+}
+
+
+@media screen and (max-width: $large){
+    body{
+     font-size: $mobile-font-size;
+    }
+
+    .App{
+      width: 100vw;
+    }
 }

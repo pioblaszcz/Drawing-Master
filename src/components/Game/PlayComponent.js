@@ -58,7 +58,6 @@ const PlayComponent = () => {
                 </ProgressProvider>
             </div>
         </div> : isPlayerTurn && <DrawComponent />
-
     return (
         <div className={`container ${app.hideRemembered && 'container--hide'}`}>
             <Canvas isPlayerTurn={isPlayerTurn} showImage={showImage} />

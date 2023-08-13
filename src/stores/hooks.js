@@ -7,7 +7,6 @@ configure({
     enforceActions: "never",
 })
 
-
 export const useAppStore = () => {
     const rootStore = useContext(StoreContext);
 

@@ -519,3 +519,171 @@
         height: 2rem;
     }
 }
+
+@media screen and (max-width: $large){
+    .startPage{
+        width: 90%;
+        height: 100%;
+        max-height: 100%;
+        border: none;
+        box-shadow: none;
+        background: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .startPage__lang{
+            top: 2%;
+            left: 1%;
+           width: auto;
+
+
+           .lang__p{
+            font-size: .9rem;
+           }
+        }
+
+        .startPage__logo{
+            padding-top: 2%;
+            height: 20%;
+
+            .startPage__logo-image{
+                height:60%;
+            }
+        }
+
+        .startPage__main{
+            justify-content: center;
+            align-items: center;
+        }
+
+        .startPage__play{
+            flex-basis: 100%;
+            max-width: 320px;
+            align-items: flex-start;
+            height: 70%;
+
+            .startPage__chose{
+                font-size: 1rem;
+                @media (max-width: 350px){
+                    font-size: 0.8rem;
+                }
+            }    
+        }
+
+        .startPage__info{
+            position: absolute;
+            top: 2.2%;
+            right: 1%;
+            color: $primary-color;
+            font-size: 1.6rem;
+        }
+
+        .footer__info{
+          width: 80%;
+          text-align: center;
+        }
+
+        .multi__apologise{
+            width: 80%;
+            font-size: 1rem;
+        }
+
+        .play{
+            height: 87%;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+        }
+
+        .play__button{
+            width: 50%;
+
+            .play__button-icon{
+               height: 1.2rem;
+            }
+        }
+
+        .play__avatar{
+           flex-basis: 55%;
+            
+            .avatar__container{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 35%;
+
+                .avatar__img{
+                    width: 100%;
+                    border: 3px solid rgb(219, 219, 219);
+                }
+
+                .avatar__refresh{
+                    z-index: 2;
+                }
+            }
+        }
+
+        .play__nickname{
+            flex-basis: 20%;
+
+            .nickname__p{
+                display: none;
+            }
+
+            .nickname__input{
+                padding: 5px 10px;
+                bottom: 50%;
+                transform: translate(-50%, 50%);
+            }
+        }
+
+        .play__start-wraper{
+            flex-basis: 25%;
+        }
+    }
+
+    .howToPlay{
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        transform: translate(-5%, 0);
+        border-radius: 0;
+        height: 100vh;
+        width: 100vw;
+        border: none;
+        background-color: rgba(0, 0, 0, 0.719);
+        z-index: 4;
+
+        .howToPlay__header{
+            font-size: 1.4rem;
+        }
+
+        .howToPlay__main{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+
+        .howToPlay__text{
+            height: 40%;
+        }
+
+        .howToPlay__close{
+            cursor: pointer;
+            position: absolute;
+            top: 2%;
+            right: 7%;
+            background-color: transparent;
+            border: none;
+            font-size: 1.6rem;
+            color: $primary-color;
+        }
+
+        .text__mainContent{
+            display: block;
+        }
+    }
+}

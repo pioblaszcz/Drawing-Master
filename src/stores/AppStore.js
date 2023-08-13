@@ -1,6 +1,8 @@
 import { makeAutoObservable } from 'mobx';
 
 const INITIAL_STATE = {
+    isMobile: false,
+    showHowToPlay: false,
     hideStartApp: false,
     hideRemembered: false,
     playerTurn: false,
@@ -20,6 +22,8 @@ export default class AppStore {
         makeAutoObservable(this)
     }
 
+    setIsMobile = bool => this.app.isMobile = bool;
+    setShowHowToPlay = bool => this.app.showHowToPlay = bool;
     changeHide = hide => this.app.hideStartApp = hide;
     changeHideRemembered = hide => this.app.hideRemembered = hide;
     isPlayerTurn = bool => this.app.playerTurn = bool;
