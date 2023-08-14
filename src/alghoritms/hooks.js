@@ -20,14 +20,19 @@ export const useOnDraw = (onDraw) => {
             computePointInCanvas();
             const mouseMoveListener = e => {
                 if (isDrawingRef.current) {
-                    const point = computePointInCanvas(e.clientX, e.clientY);
+                    let point;
+
+                    if (e.touches) point = computePointInCanvas(e.touches[0].clientX, e.touches[0].clientY);
+                    else point = computePointInCanvas(e.clientX, e.clientY);
+
                     const ctx = canvasRef.current.getContext('2d');
                     if (onDraw) onDraw(ctx, point, prevPointRef.current);
                     prevPointRef.current = point;
                 }
             }
             mouseMoveListenerRef.current = mouseMoveListener;
-            window.addEventListener('mousemove', mouseMoveListener)
+            window.addEventListener('mousemove', mouseMoveListener);
+            window.addEventListener('touchmove', mouseMoveListener);
         }
 
         const initMouseUpListener = () => {
@@ -37,6 +42,7 @@ export const useOnDraw = (onDraw) => {
             }
             mouseUpListenerRef.current = listener;
             window.addEventListener('mouseup', listener);
+            window.addEventListener('touchend', listener);
         }
 
         const computePointInCanvas = (clientX, clientY) => {
@@ -51,9 +57,11 @@ export const useOnDraw = (onDraw) => {
         const removeListeners = () => {
             if (mouseMoveListenerRef.current) {
                 window.removeEventListener('mousemove', mouseMoveListenerRef.current);
+                window.removeEventListener('touchmove', mouseMoveListenerRef.current);
             }
             if (mouseMoveListenerRef.current) {
                 window.removeEventListener('mouseup', mouseUpListenerRef.current);
+                window.removeEventListener('touchend', mouseMoveListenerRef.current);
             }
         }
         initMouseMoveListener();

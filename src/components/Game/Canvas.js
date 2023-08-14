@@ -92,9 +92,13 @@ const Canvas = ({ isPlayerTurn, showImage }) => {
         <>
             {showEndGameComponent ? <EndGameComponent /> :
                 <div className={`canvas-container ${app.isGameEnded && 'canvas-container--hide'}`}>
-                    <img src={wow} alt="" className="container__wow" />
-                    <img src={nail} alt="" className="container__nail" />
-                    <img src={pin} alt="" className="container__pin" />
+                    {!app.isMobile && (
+                        <>
+                            <img src={wow} alt="" className="container__wow" />
+                            <img src={nail} alt="" className="container__nail" />
+                            <img src={pin} alt="" className="container__pin" />
+                        </>
+                    )}
                     {showCompare && (
                         <canvas
                             ref={canvasCompareRef}
@@ -108,6 +112,7 @@ const Canvas = ({ isPlayerTurn, showImage }) => {
                         height={canvasHeight}
                         ref={setCanvasRef}
                         onMouseDown={onMouseDown}
+                        onTouchStart={onMouseDown}
                     ></canvas>
                     {!showImage && !isPlayerTurn && <p className="canvas__text">{t('game.remember')}</p>}
                 </div>

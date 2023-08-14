@@ -11,44 +11,49 @@ import StartApp from './pages/StartApp';
 import Loading from './pages/Loading';
 import Game from './pages/Game';
 
-// import EntryModal from './components/Modals/EntryModal';
+import EntryModal from './components/Modals/EntryModal';
 
-const checkIsAppAvaliable = () => {
+const checkIsMobile = () => {
 
   const userInfo = window.navigator.userAgent;
 
-  if (window.innerWidth < 940) return false;
+  if (window.innerWidth < 940) return true;
   if (userInfo.match('/Android/')
     || userInfo.match('/webOS/')
     || userInfo.match('/iPhone/')
     || userInfo.match('/iPad/')
     || userInfo.match('/iPod/')
     || userInfo.match('/BlackBerry/')
-    || userInfo.match('/Windows Phone/')) return false;
-  return true;
+    || userInfo.match('/Windows Phone/')) return true;
+  return false;
 }
 
 const App = () => {
 
-  const [appAvalible, setIsAppAvaliable] = useState(true);
+  const [appMobile, setIsAppMobile] = useState(false);
+  const [block, setBlock] = useState(false);
   const { setIsMobile } = useAppStore();
 
   const router = createHashRouter(createRoutesFromElements(
     <Route path='/'>
-      <Route index element={<StartApp />} />
+      <Route index element={block ? <EntryModal /> : <StartApp />} />
       <Route path='/play' element={<Game />} />
     </Route>
   ));
 
   const appResize = () => {
-    if (!appAvalible) {
-      if (checkIsAppAvaliable()) {
-        setIsAppAvaliable(true);
+    if (window.innerHeight < 480) {
+      setBlock(true);
+      return;
+    } else setBlock(false);
+    if (appMobile) {
+      if (!checkIsMobile()) {
+        setIsAppMobile(false);
         setIsMobile(false);
       }
     } else {
-      if (!checkIsAppAvaliable()) {
-        setIsAppAvaliable(false);
+      if (checkIsMobile()) {
+        setIsAppMobile(true);
         setIsMobile(true);
       }
     };

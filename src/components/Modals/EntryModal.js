@@ -21,7 +21,7 @@ const EntryModal = () => {
                     <div className="modal__content">
                         <h2 className="modal__title">access denied!</h2>
                         <p className="modal__description">
-                            We are sorry but the app is not available on mobile devices
+                            You have to change your phone orientation
                         </p>
                     </div>
                 </div>
