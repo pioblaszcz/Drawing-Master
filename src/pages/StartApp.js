@@ -64,7 +64,7 @@ const StartApp = () => {
                 <div className="startPage__main">
                     <div className="startPage__play">
                         <button className={`startPage__chose ${playOption ? 'button--active' : 'button--unactive'}`} onClick={() => handleChoseMode(1)}>{t('startApp.training')}</button>
-                        <button className={`startPage__chose  ${!playOption ? 'button--active' : 'button--unactive'}`} onClick={() => handleChoseMode(0)}>{app.isMobile ? 'Multiplayer' : t('startApp.playWFriends')}</button>
+                        <button className={`startPage__chose  ${!playOption ? 'button--active' : 'button--unactive'}`} onClick={() => handleChoseMode(0)}>{user.isMobile ? 'Multiplayer' : t('startApp.playWFriends')}</button>
                         <div className={`space ${!playOption && 'space--second'}`}></div>
                         {play}
                     </div>
