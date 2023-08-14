@@ -27,7 +27,7 @@ npm run build
 
 ## Description
 <p align="center">
- <strong>Drawing Master</strong> is a simple game to test your drawing skills. Visually inspired by <a href="https://garticphone.com/" target="_blank">Gartic Phone</a>. Due to the specificity of the game, the ability to play has been limited to mobile devices! Have fun ;)
+ <strong>Drawing Master</strong> is a simple game to test your drawing skills. Visually inspired by <a href="https://garticphone.com/" target="_blank">Gartic Phone</a>. Due to the specificity of the game it is recommended to use the application on desktop devices, but you can also play on mobile! Have fun ;)
 
  <img width="704" alt="Game screenshot" src="https://github.com/pioblaszcz/drawing-master/blob/main/readme/drawss.jpg" >
  </p>
