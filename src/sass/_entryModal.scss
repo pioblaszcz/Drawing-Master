@@ -8,10 +8,14 @@
     width: 100vw;
     background: transparent;
     height: 100vh;
+    display: none;
 }
 
 .modal{
-    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 80%;
     height: 50%;
     background-color: $base-background-color;
@@ -61,5 +65,11 @@
         padding-bottom: 1rem;
         text-transform: uppercase;
         font-family: $digital-font;
+    }
+}
+
+@media screen and (max-width: $large) and  (min-aspect-ratio: 13/9){
+    .modal-container{
+        display: block;
     }
 }

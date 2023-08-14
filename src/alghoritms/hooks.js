@@ -86,12 +86,13 @@ export const useOnDraw = (onDraw) => {
     }
 
     const drawImage = (image) => {
-        const ctx = canvasRef.current.getContext('2d');
+        if (!canvasRef.current) return;
+        const ctx = canvasRef.current.getContext('2d', { willReadFrequently: true });
         ctx.drawImage(image, 0, 0, canvasRef.current.width, canvasRef.current.height);
     }
 
     const removeImage = () => {
-        const ctx = canvasRef.current.getContext('2d');
+        const ctx = canvasRef.current.getContext('2d', { willReadFrequently: true });
         ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
     }
 

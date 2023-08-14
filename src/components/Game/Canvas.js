@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { observer } from 'mobx-react';
 import { useTranslation } from 'react-i18next';
-import { useDrawingStore } from '../../stores/hooks';
-import { useAppStore } from '../../stores/hooks';
+import { useDrawingStore, useUserStore, useAppStore } from '../../stores/hooks';
 import { useOnDraw } from '../../alghoritms/hooks';
 import EndGameComponent from './EndGameComponent';
 
@@ -15,9 +14,12 @@ const img = new Image();
 const Canvas = ({ isPlayerTurn, showImage }) => {
 
     const { app, setShowResult } = useAppStore();
+    const { user } = useUserStore();
+    const { drawSettings } = useDrawingStore();
+
+
     const canvasCompareRef = useRef();
 
-    const { drawSettings } = useDrawingStore();
     const { color, fillSize } = drawSettings;
     const { t } = useTranslation();
 
@@ -35,7 +37,7 @@ const Canvas = ({ isPlayerTurn, showImage }) => {
             setTimeout(() => setShowCompare(true), 5500);
             setTimeout(() => setShowResult(true), 6500);
         }
-    }, [app.endDrawing, setShowResult, app.isGameEnded]);
+    }, [app.endDrawing, setShowResult]);
 
     useEffect(() => {
         if (app.isGameEnded) {
@@ -92,7 +94,7 @@ const Canvas = ({ isPlayerTurn, showImage }) => {
         <>
             {showEndGameComponent ? <EndGameComponent /> :
                 <div className={`canvas-container ${app.isGameEnded && 'canvas-container--hide'}`}>
-                    {!app.isMobile && (
+                    {!user.isMobile && (
                         <>
                             <img src={wow} alt="" className="container__wow" />
                             <img src={nail} alt="" className="container__nail" />

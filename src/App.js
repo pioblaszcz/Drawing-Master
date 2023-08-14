@@ -6,12 +6,10 @@ import {
   Route
 } from 'react-router-dom';
 import StoreProvider from './stores/StoreProvider';
-import { useAppStore } from './stores/hooks';
+import { useUserStore } from './stores/hooks';
 import StartApp from './pages/StartApp';
 import Loading from './pages/Loading';
 import Game from './pages/Game';
-
-import EntryModal from './components/Modals/EntryModal';
 
 const checkIsMobile = () => {
 
@@ -31,21 +29,16 @@ const checkIsMobile = () => {
 const App = () => {
 
   const [appMobile, setIsAppMobile] = useState(false);
-  const [block, setBlock] = useState(false);
-  const { setIsMobile } = useAppStore();
+  const { setIsMobile } = useUserStore();
 
   const router = createHashRouter(createRoutesFromElements(
     <Route path='/'>
-      <Route index element={block ? <EntryModal /> : <StartApp />} />
+      <Route index element={<StartApp />} />
       <Route path='/play' element={<Game />} />
     </Route>
   ));
 
   const appResize = () => {
-    if (window.innerHeight < 480) {
-      setBlock(true);
-      return;
-    } else setBlock(false);
     if (appMobile) {
       if (!checkIsMobile()) {
         setIsAppMobile(false);

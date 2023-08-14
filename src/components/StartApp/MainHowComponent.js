@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 const icons = [faGamepad, faImage, faPaintBrush, faPercent];
 
-const MainHowComponent = ({ id, title, text }) => {
+const MainHowComponent = ({ id }) => {
     const { t } = useTranslation();
 
     return (

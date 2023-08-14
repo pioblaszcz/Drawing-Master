@@ -164,3 +164,51 @@
         transform: scale(1);
     }
 }
+
+@media screen and (max-width: $large){
+    .endGame{
+        margin-top: 5vh;
+        width: 95%;
+        height: 90vh;
+
+        .endGame__playAgain{
+            width: 100%;
+            animation: none;
+            transform: translateX(0) scale(0);
+            animation: showplayAgainMobile 1s linear forwards;
+        }
+    }
+
+    .endGame__result{
+        .endGame__trophyIcon{
+            font-size: 4rem;
+        }
+
+        .endGame__points{
+            font-size: 2rem;
+        }
+
+        .endGame__pointsToAdd{
+            font-size: 1.8rem;
+        }
+
+        @media (min-width: 350px){
+            .endGame__trophyIcon{
+                font-size: 6rem;
+            }
+    
+            .endGame__points{
+                font-size: 3rem;
+            }
+    
+            .endGame__pointsToAdd{
+                font-size: 2.4rem;
+            }
+        }
+    }
+}
+@keyframes showplayAgainMobile{
+    100%{
+       transform: translateX(0) scale(1);
+   }
+}

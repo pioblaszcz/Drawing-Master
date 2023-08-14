@@ -396,13 +396,14 @@
         }
 
         .panel__end-container{
+            padding-top: 0;
             order: 4;
             flex-basis: 100%;
 
             .panel__end{
                 width:75%;
                 height: 22%;
-                top: 20%;
+                top: 6%;
                 left: 0;
 
                 p{
@@ -443,6 +444,18 @@
                 bottom: -40%;
                 right: 0;
             }
+        }
+    }
+
+    .endInfo__container{
+        width: 95%;
+
+        .endInfo__text{
+            font-size: 1.2rem;
+        }
+
+        .endInfo__text-smaller{
+            font-size: 1rem;
         }
     }
 }

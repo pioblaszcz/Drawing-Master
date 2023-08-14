@@ -1,7 +1,6 @@
 import { makeAutoObservable } from 'mobx';
 
 const INITIAL_STATE = {
-    isMobile: false,
     showHowToPlay: false,
     hideStartApp: false,
     hideRemembered: false,
@@ -22,13 +21,15 @@ export default class AppStore {
         makeAutoObservable(this)
     }
 
-    setIsMobile = bool => this.app.isMobile = bool;
     setShowHowToPlay = bool => this.app.showHowToPlay = bool;
     changeHide = hide => this.app.hideStartApp = hide;
     changeHideRemembered = hide => this.app.hideRemembered = hide;
     isPlayerTurn = bool => this.app.playerTurn = bool;
     setIsDrawingEnded = bool => this.app.endDrawing = bool;
-    setShowResult = bool => this.app.showResult = bool;
+    setShowResult = bool => {
+        this.app.showResult = bool
+        console.log(this.app.showResult, bool)
+    };
     setCompareRate = number => this.app.compareRate = number;
     setIsGameEnded = bool => this.app.isGameEnded = bool;
     setHideResult = bool => this.app.hideResult = bool;

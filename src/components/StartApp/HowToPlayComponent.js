@@ -2,7 +2,7 @@ import React, { useState, memo, useEffect } from 'react';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import { useTranslation } from 'react-i18next';
 import { observer } from 'mobx-react';
-import { useAppStore } from '../../stores/hooks';
+import { useAppStore, useUserStore } from '../../stores/hooks';
 import ProgressProvider from "../../providers/ProgressProvider";
 import MainHowComponent from './MainHowComponent';
 
@@ -39,7 +39,8 @@ let timer;
 const HowToPlay = () => {
     const { t } = useTranslation();
 
-    const { app, setShowHowToPlay } = useAppStore();
+    const { setShowHowToPlay } = useAppStore();
+    const { user } = useUserStore();
     const [pictureActive, setPictureActive] = useState(0);
     const [valueEnd, setValueEnd] = useState(100)
 
@@ -68,7 +69,7 @@ const HowToPlay = () => {
     const main = sliderElements.filter(element => element.id === pictureActive)[0];
     return (
         <div className={`howToPlay`}>
-            {app.isMobile && <button className="howToPlay__close" onClick={() => setShowHowToPlay(false)}>X</button>}
+            {user.isMobile && <button className="howToPlay__close" onClick={() => setShowHowToPlay(false)}>X</button>}
             <div className="howToPlay__bar">
                 <ProgressProvider valueStart={0} valueEnd={valueEnd}>
                     {value => <CircularProgressbar

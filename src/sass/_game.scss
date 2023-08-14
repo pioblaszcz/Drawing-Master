@@ -335,5 +335,19 @@
         .remember__timer{
             padding-top: 10%;
         }
+
+        .compare{
+            width: 95%;
+            
+            .compare__rate{
+                font-size: 1.4rem;
+                width: 100%;
+                text-align: center;
+            }
+
+            .compare__loader{
+                width: 90%;
+            }
+        }
     }
 }

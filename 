@@ -1,0 +1,121 @@
+[33mcommit a8804e263d9e1378f268b459f23354a2472d298b[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: Piotr Blaszczak <piotrblaszczakooo@gmail.com>
+Date:   Mon Aug 14 11:58:27 2023 +0200
+
+    Create drawing component mobile
+
+[33mcommit 2f444989bcaed854b99734e60ce226459147ae30[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: Piotr Blaszczak <piotrblaszczakooo@gmail.com>
+Date:   Sun Aug 13 14:07:29 2023 +0200
+
+    Create mobile start page
+
+[33mcommit 2a99e0c54c30d14dd60ea35ed4bdf47ea94aa2f7[m
+Merge: 63569cb 05f4583
+Author: Piotr Blaszczak <piotrblaszczakooo@gmail.com>
+Date:   Sat Aug 12 12:37:03 2023 +0200
+
+    Merge branch 'main' of https://github.com/pioblaszcz/Drawing-Master
+
+[33mcommit 63569cbc38cc5f8739b708b73732eb45f1d164e7[m
+Author: Piotr Blaszczak <piotrblaszczakooo@gmail.com>
+Date:   Sat Aug 12 12:31:37 2023 +0200
+
+    Compress images and fix errors
+
+[33mcommit 05f458352b6d312164711bef1fcbf9ba7ad5766a[m
+Author: Piotr Blaszczak <piotrblaszczakooo@gmail.com>
+Date:   Sat Aug 12 12:31:37 2023 +0200
+
+    Comprese images and fix errors
+
+[33mcommit e792913180cd9b947c8aa335d57c7bcc37718d70[m
+Author: Piotr Blaszczak <piotrblaszczakooo@gmail.com>
+Date:   Fri Aug 11 18:29:00 2023 +0200
+
+    Fix compare issue
+
+[33mcommit 6e538609f50a86a7cef387eb15930ee905b8879f[m
+Merge: 4099bbb 9c3d2e2
+Author: Piotr Blaszczak <piotrblaszczakooo@gmail.com>
+Date:   Fri Aug 11 17:59:16 2023 +0200
+
+    Merge branch 'main' of https://github.com/pioblaszcz/Drawing-Master
+
+[33mcommit 4099bbb4b9f310b62e0983578d8eb1322f98dcbc[m
+Author: Piotr Blaszczak <piotrblaszczakooo@gmail.com>
+Date:   Fri Aug 11 17:58:42 2023 +0200
+
+    Add more drawings and upgrade Mobx code
+
+[33mcommit 9c3d2e2d6e2911825141bf05e00d0e4a2ebc3ff7[m
+Author: pioblaszcz <62596692+pioblaszcz@users.noreply.github.com>
+Date:   Fri Aug 11 13:53:49 2023 +0200
+
+    Update README.md
+
+[33mcommit 6d7932c47cb854f3bf33cb85f365a13117c37652[m
+Author: Piotr Blaszczak <piotrblaszczakooo@gmail.com>
+Date:   Fri Aug 11 13:49:56 2023 +0200
+
+    Add readme folder and repaired some issues
+
+[33mcommit 93d217a198429456ec5588be5ce7f28a8ae65a4a[m
+Author: Piotr Blaszczak <piotrblaszczakooo@gmail.com>
+Date:   Fri Aug 11 13:23:22 2023 +0200
+
+    improving the structure of the application
+
+[33mcommit d8e13642bb7263f8d11321b891db1ea219d8c97d[m
+Author: Piotr Blaszczak <piotrblaszczakooo@gmail.com>
+Date:   Thu Aug 10 13:16:43 2023 +0200
+
+    Fix problem with react router and gh pages
+
+[33mcommit 899ca229040c50b5823307bebd3ded2dbc754aef[m
+Author: Piotr Blaszczak <piotrblaszczakooo@gmail.com>
+Date:   Thu Aug 10 12:15:02 2023 +0200
+
+    Add full translation in App
+
+[33mcommit d57c20ce7481cf9ac7cf5317b2a1e3e1437327c2[m
+Author: Piotr Blaszczak <piotrblaszczakooo@gmail.com>
+Date:   Wed Aug 9 19:28:04 2023 +0200
+
+    Add gh pages
+
+[33mcommit 9935481003207b37a83899b3b1a5938dc7eaa4ad[m
+Author: Piotr Blaszczak <piotrblaszczakooo@gmail.com>
+Date:   Wed Aug 9 19:22:51 2023 +0200
+
+    Add small style changes
+
+[33mcommit acdaa4ddb05e73ddff310f0051cb6857f56157b9[m
+Author: Piotr Blaszczak <piotrblaszczakooo@gmail.com>
+Date:   Wed Aug 9 18:43:48 2023 +0200
+
+    Created end game component, fixed small problems, added more avatars
+
+[33mcommit 8510db966105c8eab194802fc5ad66c33f6dee9f[m
+Author: Piotr Blaszczak <piotrblaszczakooo@gmail.com>
+Date:   Mon Aug 7 13:50:49 2023 +0200
+
+    Create alghoritms to compare draw and orginal image and add some styles
+
+[33mcommit 0948bf708f5498f9ec763236cc1ea1effa5649a6[m
+Author: Piotr Blaszczak <piotrblaszczakooo@gmail.com>
+Date:   Fri Aug 4 16:16:26 2023 +0200
+
+    Add remember image component and styled it
+
+[33mcommit 0457908ce8a237d9ea45a84838b972391b8d8f3a[m
+Author: Piotr Blaszczak <piotrblaszczakooo@gmail.com>
+Date:   Thu Aug 3 15:01:46 2023 +0200
+
+    Add base translation and app loader
+
+[33mcommit ccfcffcfa70a440d3862509812f72690f933fb9c[m
+Author: Piotr Blaszczak <piotrblaszczakooo@gmail.com>
+Date:   Thu Aug 3 12:43:09 2023 +0200
+
+    Create HomePage of Game and responsibility

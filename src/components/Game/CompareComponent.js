@@ -12,7 +12,7 @@ const CompareComponent = () => {
 
     const loaderInsideRef = useRef();
 
-    const { app, setIsGameEnded } = useAppStore();
+    const { app, setIsGameEnded, setIsDrawingEnded } = useAppStore();
 
     const [compareRateCopy, setCompareRateCopy] = useState(0)
 
@@ -38,6 +38,8 @@ const CompareComponent = () => {
         }
 
     }, [compareRateCopy, app.compareRate, setIsGameEnded]);
+
+    useEffect(() => { setIsDrawingEnded(false) }, [setIsDrawingEnded]);
 
     return (
         <>
