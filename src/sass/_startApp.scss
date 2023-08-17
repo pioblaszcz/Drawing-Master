@@ -230,7 +230,14 @@
             font-size: 1.2rem;
 
             &::placeholder{
-                color:  $primary-color;
+                color:  rgba(214, 214, 214, 0.322);
+            }
+
+            &:-ms-input-placeholder{
+                color:  rgba(214, 214, 214, 0.322);
+            } 
+            &::-ms-input-placeholder{
+                color:  rgba(214, 214, 214, 0.322);
             }
 
             &:focus{

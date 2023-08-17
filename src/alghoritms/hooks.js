@@ -106,36 +106,40 @@ export const useOnDraw = (onDraw) => {
 }
 
 export const useOnCheck = () => {
-    const img = new Image();
 
     const { setCompareRate } = useAppStore();
     const { drawSettings } = useDrawingStore();
 
-    img.src = drawSettings.draw;
+    const compare = () => {
+        const img = new Image();
+        img.src = drawSettings.draw;
+        const canvas = document.querySelector('.canvas');
+        const canvasToCompare = document.querySelector('.canvasCompare');
 
-    const canvas = document.querySelector('.canvas');
-    const canvasToCompare = document.querySelector('.canvasCompare');
+        if (!canvas || !canvasToCompare) return;
 
-    if (!canvas || !canvasToCompare) return;
+        const ctx1 = canvas.getContext('2d', { willReadFrequently: true });
+        const ctx2 = canvasToCompare.getContext('2d', { willReadFrequently: true });
 
-    const ctx1 = canvas.getContext('2d', { willReadFrequently: true });
-    const ctx2 = canvasToCompare.getContext('2d', { willReadFrequently: true });
+        ctx2.drawImage(img, 0, 0, canvas.width, canvas.height);
 
-    ctx2.drawImage(img, 0, 0, canvas.width, canvas.height);
+        const pixels1 = ctx1.getImageData(0, 0, canvas.width, canvas.height).data;
+        const pixels2 = ctx2.getImageData(0, 0, canvasToCompare.width, canvasToCompare.height).data;
 
-    const pixels1 = ctx1.getImageData(0, 0, canvas.width, canvas.height).data;
-    const pixels2 = ctx2.getImageData(0, 0, canvasToCompare.width, canvasToCompare.height).data;
+        let numberOfPixels = pixels2.length;
+        let count = 0;
 
-    let numberOfPixels = pixels2.length;
-    let count = 0;
-
-    for (let i = 0; i < pixels1.length; i++) {
-        if ((pixels2[i] === 255 && pixels1[i] === 0) || (pixels2[i] === 255 && pixels1[i] === 255)) numberOfPixels--;
-        else if (pixels2[i] === pixels1[i] && pixels2[i] !== 0) {
-            count++;
+        for (let i = 0; i < pixels1.length; i++) {
+            if (pixels2[i] === 255 || pixels2[i] === 0) numberOfPixels--;
+            if (pixels2[i] === 255 && (pixels1[i] !== 0 && pixels1[i] !== 255)) numberOfPixels++;
+            if (pixels2[i] === pixels1[i] && (pixels1[i] !== 255 && pixels1[i] !== 0)) {
+                count++;
+            }
         }
+        let number = Number(((count / numberOfPixels) * 100).toFixed(0));
+        if (number > 100) number = 100;
+        setCompareRate(number);
     }
-    let number = Number(((count / numberOfPixels) * 100).toFixed(0));
-    if (number > 100) number = 100;
-    setCompareRate(number);
+
+    return { compare };
 }

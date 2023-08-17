@@ -26,10 +26,7 @@ export default class AppStore {
     changeHideRemembered = hide => this.app.hideRemembered = hide;
     isPlayerTurn = bool => this.app.playerTurn = bool;
     setIsDrawingEnded = bool => this.app.endDrawing = bool;
-    setShowResult = bool => {
-        this.app.showResult = bool
-        console.log(this.app.showResult, bool)
-    };
+    setShowResult = bool => this.app.showResult = bool;
     setCompareRate = number => this.app.compareRate = number;
     setIsGameEnded = bool => this.app.isGameEnded = bool;
     setHideResult = bool => this.app.hideResult = bool;

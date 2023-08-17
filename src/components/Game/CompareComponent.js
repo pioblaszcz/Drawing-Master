@@ -16,7 +16,7 @@ const CompareComponent = () => {
 
     const [compareRateCopy, setCompareRateCopy] = useState(0)
 
-    useOnCheck();
+    const { compare } = useOnCheck();
 
     useEffect(() => {
         interval = setInterval(() => setCompareRateCopy(prev => prev + 1), 150);
@@ -39,7 +39,7 @@ const CompareComponent = () => {
 
     }, [compareRateCopy, app.compareRate, setIsGameEnded]);
 
-    useEffect(() => { setIsDrawingEnded(false) }, [setIsDrawingEnded]);
+    useEffect(() => { setIsDrawingEnded(false); compare(); });
 
     return (
         <>
