@@ -19,7 +19,7 @@ const EndGameComponent = () => {
     const { app } = useAppStore();
     const { nick, avatar, points } = user;
     const { compareRate } = app;
-
+    console.log(nick, user)
     const [hideResult, setHideResult] = useState(false);
     const [userPoints, setUserPoints] = useState(points);
 
@@ -44,7 +44,6 @@ const EndGameComponent = () => {
         addUserPoints(pointsToAdd);
         navigate('/');
     }
-
 
     return (
         <div className="endGame">

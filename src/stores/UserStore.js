@@ -1,9 +1,11 @@
 import { makeAutoObservable } from 'mobx';
 
+const storage = JSON.parse(window.localStorage.getItem("user"));
+
 const INITIAL_STATE = {
-    nick: "",
-    avatar: null,
-    points: 0,
+    nick: storage ? storage.nick : '',
+    avatar: storage ? storage.avatar : null,
+    points: storage ? storage.points : 0,
     isMobile: false,
 }
 

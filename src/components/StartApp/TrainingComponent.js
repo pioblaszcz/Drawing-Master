@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 import { useAppStore, useUserStore } from '../../stores/hooks';
@@ -20,17 +20,19 @@ const TrainingComponent = () => {
     const { t } = useTranslation();
 
     const [numberAvatar, setNumberAvatar] = useState(user.avatar ? avatars.findIndex(avatar => avatar === user.avatar) : 1);
-    const [nickname, setNickname] = useState(user.nick ? user.nick : '');
+    const [nickname, setNickname] = useState(user.nick);
     const [placeholderEr, setPlaceholderEr] = useState(false);
 
     const setUserNickname = (e) => {
         setNickname(e.target.value);
         setUserNick(e.target.value);
+        window.localStorage.setItem('user', JSON.stringify(user));
     }
 
     const handleChangeAvatar = () => {
         setNumberAvatar(prev => prev + 1 > 2 ? 0 : prev + 1);
         setUserAvatar(avatars[numberAvatar + 1]);
+        window.localStorage.setItem('user', JSON.stringify(user));
     }
 
     const handleStartGame = () => {
@@ -44,6 +46,8 @@ const TrainingComponent = () => {
         changeHide(true);
         setTimeout(() => navigate("/play"), 1000);
     }
+
+    useEffect(() => window.localStorage.setItem('user', JSON.stringify(user)));
 
     return (
         <div className="play">
