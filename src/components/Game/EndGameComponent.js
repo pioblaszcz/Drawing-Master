@@ -23,7 +23,7 @@ const EndGameComponent = () => {
     const [hideResult, setHideResult] = useState(false);
     const [userPoints, setUserPoints] = useState(points);
 
-    let pointsToAdd = compareRate >= 60 ? compareRate : (100 - compareRate) * -1;
+    let pointsToAdd = compareRate >= 45 ? compareRate : (100 - compareRate) * -1;
 
     useEffect(() => {
         const rate = (2000 / points) < 0 ? (2000 / points) * -1 : (2000 / points);
