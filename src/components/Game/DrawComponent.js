@@ -83,7 +83,7 @@ const DrawComponent = () => {
                     <button className="panel__color" onClick={() => handleChangeColor('#e40101', 'red')}>
                         <div className="color__fill red"></div>
                     </button>
-                    <button className="panel__color" onClick={() => handleChangeColor('#dff200', 'yellow')}>
+                    <button className="panel__color" onClick={() => handleChangeColor('#fad246', 'yellow')}>
                         <div className="color__fill yellow"></div>
                     </button>
                     <button className="panel__color" onClick={() => handleChangeColor('#00af36', 'green')}>

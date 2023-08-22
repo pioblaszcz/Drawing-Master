@@ -13,10 +13,16 @@ import Footer from '../components/StartApp/Footer';
 import EntryModal from '../components/Modals/EntryModal';
 
 import draw1 from '../images/drawings/draw1.png';
-import draw2 from '../images/drawings/draw2.jpg';
+import draw2 from '../images/drawings/draw2.png';
+
+import draw1m from '../images/drawings/draw1m.jpg';
+import draw2m from '../images/drawings/draw2m.png';
+
 import logo from '../images/logo/logotran.png';
 
 const drawings = [draw1, draw2];
+const drawingsm = [draw1m, draw2m];
+
 
 const StartApp = () => {
     const { app, resetApp, setShowHowToPlay, setShowResult } = useAppStore();
@@ -31,9 +37,9 @@ const StartApp = () => {
 
     useEffect(() => {
         resetDrawing();
-        setDraw(drawings[Math.floor(Math.random() * 2)]);
+        setDraw(isMobile ? drawingsm[Math.floor(Math.random() * drawingsm.length)] : drawings[Math.floor(Math.random() * drawings.length)]);
         resetApp();
-    }, [resetApp, resetDrawing, setDraw, setShowResult]);
+    }, [resetApp, resetDrawing, setDraw, setShowResult, isMobile]);
 
     const play = playOption ? <TrainingComponent /> : <MultiplayerComponent />;
 
