@@ -23,7 +23,6 @@ import logo from '../images/logo/logotran.png';
 const drawings = [draw1, draw2];
 const drawingsm = [draw1m, draw2m];
 
-
 const StartApp = () => {
     const { app, resetApp, setShowHowToPlay, setShowResult } = useAppStore();
     const { user } = useUserStore();

@@ -7,9 +7,11 @@ import {
 } from 'react-router-dom';
 import StoreProvider from './stores/StoreProvider';
 import { useUserStore } from './stores/hooks';
+
 import StartApp from './pages/StartApp';
 import Loading from './pages/Loading';
 import Game from './pages/Game';
+import Page404 from './pages/Page404';
 
 const checkIsMobile = () => {
 
@@ -35,6 +37,7 @@ const App = () => {
     <Route path='/'>
       <Route index element={<StartApp />} />
       <Route path='/play' element={<Game />} />
+      <Route path='*' exact={true} element={<Page404 />} />
     </Route>
   ));
 
